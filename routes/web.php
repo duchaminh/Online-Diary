@@ -38,7 +38,11 @@ Route::group(['middleware'=>'user'],function(){
 	Route::get('listPost','User\PostController@listPost');
 	Route::get('listEvent','EventController@listEvent');
 	Route::get('viewPost/{id}','User\PostController@viewPost');
-	Route::post('writeComment','User\PostController@writeComment');
+	Route::post('writeComment',[
+		'uses' => 'User\PostController@writeComment',
+		'as' => 'write.comment'
+	]);
+
 	Route::get('deletePost/{id}',[
 		'uses' => 'User\PostController@deletePost',
 		'as'  => 'post.dele',
@@ -89,6 +93,7 @@ Route::post('edit',[
 ]);
 Route::get('/profile/{user_id}', 'User\InfoController@viewInfo');
 });
+
 
 Route::post('taonhatki/{user_id}',[
 	'uses' => 'PostControler@createPost',

@@ -5,13 +5,17 @@
   <meta charset="utf-8">
   <base href="{{asset('')}}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
   <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <script src="js/clockpicker.js"></script>
   <script src="js/datepicker.js"></script>
+  
   <script src="js/index.js"></script>
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/clockpicker.css">
@@ -22,7 +26,7 @@
 <body>
 
     <div id="wrapper">
-
+        
        <!-- Navigation -->
        @if(Auth::check())
         @include('Layout._header_user')
@@ -39,9 +43,10 @@
 
    </div>
    <!-- /#wrapper -->
-
+    
    @include("Event._create_event")
    @yield('script')
+    <script src="{{mix('/js/app.js')}}"></script> 
 </body>
 
 </html>

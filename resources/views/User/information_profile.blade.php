@@ -1,4 +1,4 @@
-@extends('layout.index')
+@extends('Layout.index')
 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 @section('content')
 <div class="row">
@@ -27,7 +27,7 @@
 				@endforeach
 
 				<!-- Friends -->
-				<div role="tabpanel" class="tab-pane fade" id="tab-item-4">
+				<div role="tabpanel" class="tab-pane fade active in" id="tab-item-4">
 					<div style="background-color: #FFF">
 						<h4>{{ $user->name }}'s friend</h4>
 					@if(!$user->friends()->count())

@@ -155,7 +155,7 @@
               form1.danhsach.value = res;
             }
           </script>
-          </div>
+                    </div>
         </div>      
       </div>
     </div>
@@ -174,5 +174,6 @@
       }
     })
   })
+
 </script>
 

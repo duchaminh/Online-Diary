@@ -82,4 +82,8 @@ class Diary extends Model
         return $this->morphMany('App\Likeable','likeable');
     }
 
+    public function comments(){
+      return $this->hasMany('App\Comment','id_diary');
+    }
+
 }

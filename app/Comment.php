@@ -18,7 +18,13 @@ class Comment extends Model
         $info=$user->info;
         return $info[0]->avatar;
     }
-    public function postcomment() {
-    	return $this->belongsTo('App\Post');
+    public function postComment() {
+    	return $this->belongsTo('App\Diary');
+    }
+    public function userInfo() {
+        return $this->belongsTo('App\UserInfo','id_user');
+    }
+    public function user() {
+        return $this->belongsTo('App\User','id_user');
     }
 }

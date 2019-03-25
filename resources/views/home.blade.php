@@ -10,9 +10,8 @@
     @include("User._left_col")
     @include("User._home_center_col")
     @include("User._right_col")
-
-    
-</div>
+  </div>
 </div>
 @include("User._baimoi")
+ 
 @endsection

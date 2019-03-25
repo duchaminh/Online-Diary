@@ -10,15 +10,16 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <form class="navbar-form navbar-left" action="{{ route('search.results') }}" >
-        <div class="form-group input-group search-box">
-          <input type="text" class="form-control" placeholder="Search..." name="query">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="submit">
-              <span class="fa fa-search"></span>
-            </button>
-          </span>        
-        </div>
-      </form>      
+       <div class="form-group input-group search-box">
+         <input type="search" placeholder="Search..." name="query">
+         <!-- <span class="input-group-btn">
+                                      <button class="btn btn-default" type="submit">
+                                        <span class="fa fa-search"></span>
+                                      </button>
+                       </span>   -->             
+       </div>
+      </form> 
+     
       <ul class="nav navbar-nav navbar-right">
 
         <li>
@@ -80,7 +81,7 @@
           {{-- notifications --}}
         </li>
         <li>
-          <div class="dropdown navbar-component">
+           <div class="dropdown navbar-component">
             <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 <span class="fa fa-user"></span> My Account
             </div>

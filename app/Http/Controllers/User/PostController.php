@@ -178,13 +178,18 @@ class PostController extends Controller
     	]);
 		if($v->fails())
     		return redirect()->back()->withErrors($v->errors());
-		$diary= Diary::find($request['diary_id']);
+		$diary= Diary::find($request->id_diary);
+		try{
 		$comment= new Comment();
-		$comment->id_diary= $request['diary_id'];
+		$comment->id_diary= $request->id_diary;
 		$comment->id_user= Auth::user()->id;
-		$comment->content=$request['comment'];
+		$comment->content=$request->comment;
 		$comment->seen=0;
 		$comment->save();
+		}
+		catch(\Exception $e){
+			echo $e->getMessage();
+		}
 		if(Auth::user()->id!= $diary->id_user){
 			$noti= new Notification();
 			$noti->id_user=$diary->id_user;
@@ -193,8 +198,10 @@ class PostController extends Controller
 			$noti->seen=0;
 			$noti->save();
 		}
-		return redirect()->back();
 		
+        return Comment::with('user')->where('id_diary','=',$diary->id)->orderBy('id','ASC')->get();
+		// return all posts same as before
+     
 	}
 	public function deletePost($id){
 		$diary= Diary::find($id);
